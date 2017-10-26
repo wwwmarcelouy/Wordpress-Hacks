@@ -17,7 +17,6 @@ function my_custom_admin_css() {
     #wpfooter {
         margin-left: 0;
     }
-    }
   </style>';
 }
 
