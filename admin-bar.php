@@ -24,3 +24,23 @@ add_action( 'admin_bar_menu', function ( $admin_bar ) {
   $admin_bar->remove_menu( 'new-content' );        // Remove the content link
   $admin_bar->remove_menu( 'my-account' );         // Remove the user details tab
 }, 999); // Needs to have low priority
+
+/**
+ * Hide the avatar in admin top menu
+ * @link: http://talkpress.de/artikel/wordpress-admin-bar-datenkrake-missbrauch
+ */
+
+add_action(
+	'admin_bar_menu',
+	function() {
+		add_filter( 'pre_option_show_avatars', '__return_zero' );
+	},
+	0
+);
+add_action(
+	'admin_bar_menu',
+	function() {
+		remove_filter( 'pre_option_show_avatars', '__return_zero' );
+	},
+	10
+);
