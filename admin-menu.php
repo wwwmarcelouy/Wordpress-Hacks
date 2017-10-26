@@ -78,3 +78,13 @@ add_action( 'admin_head', function () {
   // Remove Settings -> Permalinks
   remove_submenu_page( 'options-general.php', 'options-permalink.php' );
 });
+
+/**
+ * Left Hand Side Admin Menu Always Collapsed
+ */
+function custom_admin_js() {
+    echo "<script type='text/javascript' > 
+document.body.className+=' folded';                 
+</script>";
+}
+add_action('admin_footer', 'custom_admin_js');
