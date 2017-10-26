@@ -68,3 +68,18 @@ add_action( 'init', function () {
    /* Trackbacks metabox */
    remove_meta_box( 'trackbacksdiv', $post_type, $context );
  });
+
+// REMOVE FOR GENERATEPRESS THEME
+add_action( 'add_meta_boxes', 'tu_remove_meta_boxes', 999 );
+function tu_remove_meta_boxes() {
+	// Disable elements
+	remove_meta_box('generate_de_meta_box', 'page', 'side');
+	// Footer widgets
+	remove_meta_box('generate_footer_widget_meta_box', 'page', 'side');
+	// Sidebar layout
+	remove_meta_box('generate_layout_meta_box', 'page', 'side');
+	// Page builder integration
+	remove_meta_box('generate_page_builder_meta_box', 'page', 'side');
+	// Page header
+	remove_meta_box('generate_page_header_meta_box', 'page', 'normal');
+}
